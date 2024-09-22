@@ -1,0 +1,11 @@
+table{
+    border-collapse: collapse;
+    overflow: hidden;
+}
+th{
+    background: rgb(202, 202, 202);
+    text-align: left;
+}
+tr:nth-child(even){
+    background:rgb(240, 240, 240);
+}
