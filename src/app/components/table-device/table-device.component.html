@@ -1,0 +1,44 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Device of deviceList">
+            <td>
+                {{Device.id}}</td>
+            <td>
+                {{Device.name}}</td>
+            <td *ngIf="Device.data !== null &&  Device.data.hasOwnProperty('color'), else elseColor">
+                {{Device.data.color}}</td>
+            <td *ngIf="Device.data !== null &&  Device.data.hasOwnProperty('price'), else elsePrice">
+                {{Device.data.price}}</td>
+            <td><Button (click)="Device.id ? upgrade(Device.id) : null">View</Button></td>
+            <td><button (click)="Device.id ? delete(Device.id) : null">Delete</button></td>
+
+
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td><Button (click)="addTable()">Add</Button></td>
+            <td><input id="name" placeholder="Name"></td>
+            <td><input id="color" placeholder="Color"></td>
+            <td><input id="price" placeholder="Price" type="number"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<ng-template #elseColor>
+    <td>-</td>
+</ng-template>
+<ng-template #elsePrice>
+    <td>-</td>
+</ng-template>
