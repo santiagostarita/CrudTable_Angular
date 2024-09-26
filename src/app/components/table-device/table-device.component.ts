@@ -34,5 +34,12 @@ export class TableDeviceComponent {
    
   })
   }
-
+  upgrade(id: number): void{
+    console.log("upgrade")
+  }
+delete(id: number): void{
+  this.deviceService.delete(id).subscribe(response =>{
+    
+  })
+}
 }

@@ -20,8 +20,8 @@
                 {{Device.data.color}}</td>
             <td *ngIf="Device.data !== null &&  Device.data.hasOwnProperty('price'), else elsePrice">
                 {{Device.data.price}}</td>
-                <!--<td><Button (click)=´upgrade(${Device.id})´>View</Button></td>
-                <td><button (click)=´delete(${Device.id})´>Delete</button></td>-->
+            <td><Button (click)="Device.id ? upgrade(Device.id) : null">View</Button></td>
+            <td><button (click)="Device.id ? delete(Device.id) : null">Delete</button></td>
 
 
         </tr>

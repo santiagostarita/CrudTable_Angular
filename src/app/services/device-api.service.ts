@@ -25,4 +25,21 @@ export class DeviceApiService {
     }
     return this.http.post(this.url, device)
   }
+  upgrade(): Observable<any>{
+    let device: Device = {
+      name: (document.getElementById("name") as HTMLInputElement)?.value,
+      data: {
+        color: (document.getElementById("color") as HTMLInputElement)?.value,
+        price: parseFloat((document.getElementById("price") as HTMLInputElement)?.value)
+      }
+    }
+    return this.http.put(this.url, device)
+  }
+  // para hacer el patch poner un boton pq cada fila que tenga en el boton "view" y otro abajo del todo para hacer el put
+  delete(id: number): Observable<any>{
+    console.log("/${id}")
+    return this.http.delete(this.url + "/${id}")
+  }
+
+
 }
